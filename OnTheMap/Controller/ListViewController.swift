@@ -1,19 +1,16 @@
 //
-//  ViewController.swift
+//  ListViewController.swift
 //  OnTheMap
 //
 //  Created by Gökce Hatipoglu Majernik on 3/15/22.
 //
 
+import Foundation
 import UIKit
 
-class ViewController: UIViewController {
-
+class ListViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-
 }
-
