@@ -38,7 +38,7 @@
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gRo-Gp-g0t" userLabel="Password">
                                 <rect key="frame" x="16" y="403.5" width="382" height="48"/>
@@ -48,7 +48,7 @@
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jin-tW-CMD" userLabel="Login">
                                 <rect key="frame" x="16" y="467.5" width="382" height="48"/>
@@ -89,7 +89,7 @@
                         <outlet property="emailTextField" destination="pQb-YO-0yd" id="BI9-6Y-IeX"/>
                         <outlet property="loginButton" destination="jin-tW-CMD" id="8EJ-jb-heh"/>
                         <outlet property="passwordTextFIeld" destination="gRo-Gp-g0t" id="bw1-Gi-wZp"/>
-                        <segue destination="RqW-Si-Tox" kind="show" identifier="loginSegue" id="EY4-m8-I9T"/>
+                        <segue destination="RqW-Si-Tox" kind="presentation" identifier="loginSegue" id="EY4-m8-I9T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -99,7 +99,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="AAZ-3w-1v3">
             <objects>
-                <tabBarController id="RqW-Si-Tox" sceneMemberID="viewController">
+                <tabBarController modalPresentationStyle="fullScreen" id="RqW-Si-Tox" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="49z-mQ-cT4"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nqN-LM-pZ2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -121,7 +121,7 @@
                 <navigationController id="uXP-HA-7ed" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" id="z8L-9S-OHO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uMY-Yv-Xb1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -137,7 +137,7 @@
             <objects>
                 <viewController id="7qr-5Z-uap" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KzP-57-482">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="9yh-Mk-F0s"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -154,7 +154,7 @@
                 <navigationController id="ZAI-TC-8be" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="List" image="list.bullet" catalog="system" id="grT-l9-GOm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="R30-JX-9lO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -170,7 +170,7 @@
             <objects>
                 <viewController id="yVi-kN-FLk" customClass="ListViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Frc-F6-IUr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="j2c-XV-szb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

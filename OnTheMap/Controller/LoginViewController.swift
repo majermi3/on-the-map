@@ -24,6 +24,16 @@ class LoginViewController: UIViewController {
             showErrorMessage(message: "Email and password cannot be empty")
             return
         }
+        let credentials = UdacityCredentials(username: email!, password: password!)
+        UdacityClient.createSession(credentials: credentials) { success, error in
+            if success {
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                }
+            } else {
+                // TODO Show error message
+            }
+        }
     }
     
     func notEmpty(text: String?) -> Bool {

@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  OnTheMap
 //
-//  Created by Gökce Hatipoglu Majernik on 3/15/22.
+//  Created by Michal Majernik on 3/15/22.
 //
 
 import UIKit
