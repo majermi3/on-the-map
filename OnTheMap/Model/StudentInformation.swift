@@ -22,4 +22,8 @@ struct StudentInformation: Codable {
     
     var createdAt: String
     var updatedAt: String
+    
+    func fullName() -> String {
+        return "\(firstName) \(lastName)"
+    }
 }

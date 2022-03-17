@@ -17,10 +17,12 @@ class UdacityClient {
         static let base = "https://onthemap-api.udacity.com/v1"
         
         case session
+        case studenLocation(limit: Int)
         
         var stringValue: String {
             switch self {
             case .session: return Endpoints.base + "/session"
+            case .studenLocation(let limit): return Endpoints.base + "/StudentLocation?order=-updatedAt&limit=\(limit)"
             }
         }
         
@@ -45,6 +47,23 @@ class UdacityClient {
                 completion(true, nil)
             } catch {
                 completion(false, error)
+            }
+        }
+        task.resume()
+    }
+    
+    class func getStudentLocations(limit: Int = 100, completion: @escaping ([StudentInformation], Error?) -> Void) {
+        let request = URLRequest(url: Endpoints.studenLocation(limit: limit).url)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if error != nil {
+                completion([], error)
+                return
+            }
+            do {
+                let studentInformationResponse = try JSONDecoder().decode(StudentInformationResponse.self, from: data!)
+                completion(studentInformationResponse.results, nil)
+            } catch {
+                completion([], error)
             }
         }
         task.resume()
