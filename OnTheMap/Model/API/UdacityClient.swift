@@ -37,16 +37,30 @@ class UdacityClient {
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if error != nil {
-                completion(false, error)
+                DispatchQueue.main.async {
+                    completion(false, error)
+                }
                 return
             }
             let newData = removeFirst5Characters(data: data!)
+            let decoder = JSONDecoder()
             do {
-                let loginResponse = try JSONDecoder().decode(LoginResponse.self, from: newData)
+                let loginResponse = try decoder.decode(LoginResponse.self, from: newData)
                 Auth.sessionId = loginResponse.session.id
-                completion(true, nil)
+                DispatchQueue.main.async {
+                    completion(true, nil)
+                }
             } catch {
-                completion(false, error)
+                do {
+                    let errorResponse = try decoder.decode(ErrorResponse.self, from: newData) as Error
+                    DispatchQueue.main.async {
+                        completion(false, errorResponse)
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        completion(false, error)
+                    }
+                }
             }
         }
         task.resume()

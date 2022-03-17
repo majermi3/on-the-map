@@ -25,15 +25,8 @@ class LoginViewController: UIViewController {
             return
         }
         let credentials = UdacityCredentials(username: email!, password: password!)
-        UdacityClient.createSession(credentials: credentials) { success, error in
-            if success {
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "loginSegue", sender: nil)
-                }
-            } else {
-                // TODO Show error message
-            }
-        }
+        
+        UdacityClient.createSession(credentials: credentials, completion: handleLogin(success:error:))
     }
     
     func notEmpty(text: String?) -> Bool {
@@ -44,6 +37,14 @@ class LoginViewController: UIViewController {
         let alertVC = UIAlertController(title: "Login Failed", message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         show(alertVC, sender: nil)
+    }
+    
+    func handleLogin(success: Bool, error: Error?) {
+        if success {
+            self.performSegue(withIdentifier: "loginSegue", sender: nil)
+        } else {
+            self.showErrorMessage(message: error?.localizedDescription ?? "")
+        }
     }
 }
 
