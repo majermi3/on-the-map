@@ -132,7 +132,7 @@
             </objects>
             <point key="canvasLocation" x="2001" y="-123"/>
         </scene>
-        <!--Map View Controller-->
+        <!--On The Map-->
         <scene sceneID="b7g-M4-02Z">
             <objects>
                 <viewController id="7qr-5Z-uap" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
@@ -156,7 +156,14 @@
                             <constraint firstItem="8dj-oG-rja" firstAttribute="top" secondItem="9yh-Mk-F0s" secondAttribute="top" id="yD9-tQ-cjc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="iEy-oa-fP6"/>
+                    <navigationItem key="navigationItem" title="On The Map" id="iEy-oa-fP6">
+                        <barButtonItem key="leftBarButtonItem" image="icon_pin" id="tIO-4A-7bd"/>
+                        <barButtonItem key="rightBarButtonItem" image="icon_refresh" id="cIi-Ro-69D">
+                            <connections>
+                                <action selector="loadData:" destination="7qr-5Z-uap" id="7zg-zE-I7W"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="8dj-oG-rja" id="teC-aa-6Hb"/>
                     </connections>
