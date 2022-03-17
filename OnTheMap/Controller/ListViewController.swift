@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ListViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -43,18 +43,13 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    func showErrorMessage(title: String, message: String) {
-        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        show(alertVC, sender: nil)
-    }
-    
     @IBAction func loadData(_ sender: Any?) {
         UdacityClient.getStudentLocations(limit: 100) { studentInformation, error in
-            // TODO Handle error
-            DispatchQueue.main.async {
+            if error == nil {
                 StudentData.studentInformation = studentInformation
                 self.tableView.reloadData()
+            } else {
+                self.showErrorMessage(title: "Data cannot be displayed", message: error?.localizedDescription ?? "")
             }
         }
     }

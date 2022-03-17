@@ -70,14 +70,28 @@ class UdacityClient {
         let request = URLRequest(url: Endpoints.studenLocation(limit: limit).url)
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if error != nil {
-                completion([], error)
+                DispatchQueue.main.async {
+                    completion([], error)
+                }
                 return
             }
+            let decoder = JSONDecoder()
             do {
-                let studentInformationResponse = try JSONDecoder().decode(StudentInformationResponse.self, from: data!)
-                completion(studentInformationResponse.results, nil)
+                let studentInformationResponse = try decoder.decode(StudentInformationResponse.self, from: data!)
+                DispatchQueue.main.async {
+                    completion(studentInformationResponse.results, nil)
+                }
             } catch {
-                completion([], error)
+                do {
+                    let errorResponse = try decoder.decode(ErrorResponse.self, from: data!) as Error
+                    DispatchQueue.main.async {
+                        completion([], errorResponse)
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        completion([], error)
+                    }
+                }
             }
         }
         task.resume()

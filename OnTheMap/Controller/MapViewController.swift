@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, MKMapViewDelegate {
+class MapViewController: BaseViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -54,12 +54,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         self.mapView.removeAnnotations(self.mapView.annotations)
         
         UdacityClient.getStudentLocations(limit: 100) { studentInformation, error in
-            // TODO Handle error
-            DispatchQueue.main.async {
+            if error == nil {
                 StudentData.studentInformation = studentInformation
                 for info in studentInformation {
                     self.addPoint(studentInformation: info)
                 }
+            } else {
+                self.showErrorMessage(title: "Data cannot be displayed", message: error?.localizedDescription ?? "")
             }
         }
     }
