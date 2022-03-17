@@ -21,6 +21,7 @@
 		73B9D71127E2D3E500FC82AD /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B9D71027E2D3E500FC82AD /* LoginResponse.swift */; };
 		73B9D71427E2E70700FC82AD /* StudentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B9D71327E2E70700FC82AD /* StudentData.swift */; };
 		73B9D71627E2EA3200FC82AD /* StudentInformationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B9D71527E2EA3200FC82AD /* StudentInformationResponse.swift */; };
+		73B9D71827E39A5900FC82AD /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B9D71727E39A5900FC82AD /* StudentLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		73B9D71027E2D3E500FC82AD /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		73B9D71327E2E70700FC82AD /* StudentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentData.swift; sourceTree = "<group>"; };
 		73B9D71527E2EA3200FC82AD /* StudentInformationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInformationResponse.swift; sourceTree = "<group>"; };
+		73B9D71727E39A5900FC82AD /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				73B9D71327E2E70700FC82AD /* StudentData.swift */,
+				73B9D71727E39A5900FC82AD /* StudentLocation.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73B9D71827E39A5900FC82AD /* StudentLocation.swift in Sources */,
 				73B9D70327E142A900FC82AD /* StudentInformation.swift in Sources */,
 				73B674EB27E1399700EA406D /* LoginViewController.swift in Sources */,
 				73B9D70B27E2949500FC82AD /* UdacityCredentials.swift in Sources */,
