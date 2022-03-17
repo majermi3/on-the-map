@@ -16,6 +16,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         
         UdacityClient.getStudentLocations(limit: 100) { studentInformation, error in
+            // TODO Handle error
             DispatchQueue.main.async {
                 StudentData.studentInformation = studentInformation
                 self.tableView.reloadData()
@@ -28,7 +29,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "StudentInformationCell")!
         
         let studentInformation = StudentData.studentInformation[indexPath.row]
@@ -39,4 +39,19 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let studentInformation = StudentData.studentInformation[indexPath.row]
+        
+        if let url = URL(string: studentInformation.mediaURL) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            showErrorMessage(title: "Invalid URL", message: "The URL of this student is missing or is invalid.")
+        }
+    }
+    
+    func showErrorMessage(title: String, message: String) {
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        show(alertVC, sender: nil)
+    }
 }
