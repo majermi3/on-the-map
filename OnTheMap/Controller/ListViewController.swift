@@ -15,13 +15,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UdacityClient.getStudentLocations(limit: 100) { studentInformation, error in
-            // TODO Handle error
-            DispatchQueue.main.async {
-                StudentData.studentInformation = studentInformation
-                self.tableView.reloadData()
-            }
-        }
+        loadData(nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,5 +47,15 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         show(alertVC, sender: nil)
+    }
+    
+    @IBAction func loadData(_ sender: Any?) {
+        UdacityClient.getStudentLocations(limit: 100) { studentInformation, error in
+            // TODO Handle error
+            DispatchQueue.main.async {
+                StudentData.studentInformation = studentInformation
+                self.tableView.reloadData()
+            }
+        }
     }
 }

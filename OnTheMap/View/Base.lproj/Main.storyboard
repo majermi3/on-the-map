@@ -182,7 +182,7 @@
             </objects>
             <point key="canvasLocation" x="2000" y="631"/>
         </scene>
-        <!--List View Controller-->
+        <!--On The Map-->
         <scene sceneID="71X-oe-2sH">
             <objects>
                 <viewController id="yVi-kN-FLk" customClass="ListViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
@@ -227,7 +227,14 @@
                             <constraint firstItem="Ilq-fT-tgu" firstAttribute="top" secondItem="j2c-XV-szb" secondAttribute="top" id="krc-eh-HwZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Iy2-hV-lSK"/>
+                    <navigationItem key="navigationItem" title="On The Map" id="Iy2-hV-lSK">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="icon_pin" id="wMk-3P-FcD"/>
+                        <barButtonItem key="rightBarButtonItem" image="icon_refresh" id="6QJ-o1-ydg">
+                            <connections>
+                                <action selector="loadData:" destination="yVi-kN-FLk" id="J0F-Cy-LDZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Ilq-fT-tgu" id="qFU-Nq-WX4"/>
                     </connections>
@@ -240,6 +247,8 @@
     <resources>
         <image name="icon_listview-selected" width="75" height="50"/>
         <image name="icon_mapview-deselected" width="75" height="50"/>
+        <image name="icon_pin" width="24" height="24"/>
+        <image name="icon_refresh" width="24" height="24"/>
         <image name="logo-u" width="62" height="62"/>
         <namedColor name="LoginBackgroundColor">
             <color red="1" green="0.62000000476837158" blue="0.22400000691413879" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
