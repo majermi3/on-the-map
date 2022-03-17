@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RqW-Si-Tox">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -157,7 +157,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="On The Map" id="iEy-oa-fP6">
-                        <barButtonItem key="leftBarButtonItem" image="icon_pin" id="tIO-4A-7bd"/>
+                        <leftBarButtonItems>
+                            <barButtonItem image="arrowshape.turn.up.left" catalog="system" id="Pyt-eA-UrO">
+                                <connections>
+                                    <action selector="logout:" destination="7qr-5Z-uap" id="pIT-mc-Hxv"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="icon_pin" id="tIO-4A-7bd"/>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" image="icon_refresh" id="cIi-Ro-69D">
                             <connections>
                                 <action selector="loadData:" destination="7qr-5Z-uap" id="7zg-zE-I7W"/>
@@ -235,7 +242,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="On The Map" id="Iy2-hV-lSK">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="icon_pin" id="wMk-3P-FcD"/>
+                        <leftBarButtonItems>
+                            <barButtonItem image="arrowshape.turn.up.left" catalog="system" id="J74-kx-mch">
+                                <connections>
+                                    <action selector="logout:" destination="yVi-kN-FLk" id="jvI-vW-G2G"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="icon_pin" id="wMk-3P-FcD"/>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" image="icon_refresh" id="6QJ-o1-ydg">
                             <connections>
                                 <action selector="loadData:" destination="yVi-kN-FLk" id="J0F-Cy-LDZ"/>
@@ -252,6 +266,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrowshape.turn.up.left" catalog="system" width="128" height="106"/>
         <image name="icon_listview-selected" width="75" height="50"/>
         <image name="icon_mapview-deselected" width="75" height="50"/>
         <image name="icon_pin" width="24" height="24"/>

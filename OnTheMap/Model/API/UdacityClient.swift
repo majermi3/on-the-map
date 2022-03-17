@@ -31,6 +31,33 @@ class UdacityClient {
         }
     }
     
+    class func logoutUser(completion: @escaping (Bool, Error?) -> Void) {
+        var request = URLRequest(url: Endpoints.session.url)
+        request.httpMethod = "DELETE"
+        
+        var xsrfCookie: HTTPCookie? = nil
+        for cookie in HTTPCookieStorage.shared.cookies! {
+            if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
+        }
+        if let xsrfCookie = xsrfCookie {
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if error != nil {
+                DispatchQueue.main.async {
+                    completion(false, error)
+                }
+                return
+            }
+            Auth.sessionId = ""
+            DispatchQueue.main.async {
+                completion(true, nil)
+            }
+        }
+        task.resume()
+    }
+    
     class func createSession(credentials: UdacityCredentials, completion: @escaping (Bool, Error?) -> Void) {
         var request = getRequestWithHeaders(url: Endpoints.session.url)
         request.httpBody = try! JSONEncoder().encode(credentials)

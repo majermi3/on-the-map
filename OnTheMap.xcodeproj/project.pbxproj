@@ -23,7 +23,7 @@
 		73B9D71627E2EA3200FC82AD /* StudentInformationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B9D71527E2EA3200FC82AD /* StudentInformationResponse.swift */; };
 		73B9D71827E39A5900FC82AD /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B9D71727E39A5900FC82AD /* StudentLocation.swift */; };
 		73B9D71C27E3D0D900FC82AD /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B9D71B27E3D0D900FC82AD /* ErrorResponse.swift */; };
-		73B9D71E27E3D61000FC82AD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B9D71D27E3D61000FC82AD /* BaseViewController.swift */; };
+		73B9D72227E3E45200FC82AD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B9D72127E3E45200FC82AD /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +45,7 @@
 		73B9D71527E2EA3200FC82AD /* StudentInformationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInformationResponse.swift; sourceTree = "<group>"; };
 		73B9D71727E39A5900FC82AD /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 		73B9D71B27E3D0D900FC82AD /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
-		73B9D71D27E3D61000FC82AD /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		73B9D72127E3E45200FC82AD /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +101,10 @@
 		73B674FB27E13D6500EA406D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				73B9D72127E3E45200FC82AD /* BaseViewController.swift */,
+				73B674FE27E13DAB00EA406D /* ListViewController.swift */,
 				73B674EA27E1399700EA406D /* LoginViewController.swift */,
 				73B674FC27E13D7A00EA406D /* MapViewController.swift */,
-				73B674FE27E13DAB00EA406D /* ListViewController.swift */,
-				73B9D71D27E3D61000FC82AD /* BaseViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -232,7 +232,7 @@
 				73B674EB27E1399700EA406D /* LoginViewController.swift in Sources */,
 				73B9D70B27E2949500FC82AD /* UdacityCredentials.swift in Sources */,
 				73B9D71127E2D3E500FC82AD /* LoginResponse.swift in Sources */,
-				73B9D71E27E3D61000FC82AD /* BaseViewController.swift in Sources */,
+				73B9D72227E3E45200FC82AD /* BaseViewController.swift in Sources */,
 				73B674E727E1399700EA406D /* AppDelegate.swift in Sources */,
 				73B674E927E1399700EA406D /* SceneDelegate.swift in Sources */,
 				73B674FF27E13DAB00EA406D /* ListViewController.swift in Sources */,

@@ -64,4 +64,8 @@ class MapViewController: BaseViewController, MKMapViewDelegate {
             }
         }
     }
+    
+    @IBAction func logout(_ sender: Any) {
+        super.logout()
+    }
 }
