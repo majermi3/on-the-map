@@ -9,4 +9,5 @@ import Foundation
 
 class StudentData {
     static var studentInformation = [StudentInformation]()
+    static var currentStudentInformation: StudentInformation?
 }

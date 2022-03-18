@@ -24,4 +24,8 @@ class BaseViewController: UIViewController {
             }
         }
     }
+    
+    func notEmpty(text: String?) -> Bool {
+        return text != nil && text != ""
+    }
 }

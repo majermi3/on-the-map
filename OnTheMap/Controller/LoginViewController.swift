@@ -29,10 +29,6 @@ class LoginViewController: BaseViewController {
         UdacityClient.createSession(credentials: credentials, completion: handleLogin(success:error:))
     }
     
-    func notEmpty(text: String?) -> Bool {
-        return text != nil && text != ""
-    }
-    
     func handleLogin(success: Bool, error: Error?) {
         if success {
             self.performSegue(withIdentifier: "loginSegue", sender: nil)
