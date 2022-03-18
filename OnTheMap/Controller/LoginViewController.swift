@@ -24,30 +24,6 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         passwordTextFIeld.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        placeholder = textField.placeholder ?? ""
-        textField.placeholder = ""
-    }
-
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField.placeholder == "" {
-            textField.placeholder = placeholder
-        }
-    }
-
-    @IBAction func login(_ sender: Any) {
-        let password = passwordTextFIeld.text
-        let email = emailTextField.text
-        guard notEmpty(text: password), notEmpty(text: email) else {
-            showErrorMessage(title: "Login Failed", message: "Email and password cannot be empty")
-            return
-        }
-        let credentials = UdacityCredentials(username: email!, password: password!)
-        
-        toggleSpinner(true)
-        UdacityClient.createSession(credentials: credentials, completion: handleLogin(success:error:))
-    }
-    
     func handleLogin(success: Bool, error: Error?) {
         if success {
             UdacityClient.loadUser() { success, error in
@@ -71,5 +47,29 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
             spinnerView.stopAnimating()
         }
         overlayView.isHidden = !spin
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        placeholder = textField.placeholder ?? ""
+        textField.placeholder = ""
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.placeholder == "" {
+            textField.placeholder = placeholder
+        }
+    }
+    
+    @IBAction func login(_ sender: Any) {
+        let password = passwordTextFIeld.text
+        let email = emailTextField.text
+        guard notEmpty(text: password), notEmpty(text: email) else {
+            showErrorMessage(title: "Login Failed", message: "Email and password cannot be empty")
+            return
+        }
+        let credentials = UdacityCredentials(username: email!, password: password!)
+        
+        toggleSpinner(true)
+        UdacityClient.createSession(credentials: credentials, completion: handleLogin(success:error:))
     }
 }

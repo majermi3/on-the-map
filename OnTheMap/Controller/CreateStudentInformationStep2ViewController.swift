@@ -53,6 +53,42 @@ class CreateStudentInformationStep2ViewController: BaseViewController, UITextFie
         )
         mapView.setRegion(mapView.regionThatFits(region), animated: true)
     }
+
+    func goToListView() {
+        if let mapVC  = self.navigationController?.viewControllers[0] as? MapViewController {
+            mapVC.addedStudentInformation = studentInformation
+            navigationController?.popToViewController(mapVC, animated: true)
+        } else if let listVC = self.navigationController?.viewControllers[0] as? ListViewController {
+            listVC.addedStudentInformation = studentInformation
+            navigationController?.popToViewController(listVC, animated: true)
+        }
+    }
+    
+    func getFormattedDate() -> String {
+        let now = Date.now
+        return now.formatted(date: .abbreviated, time: .omitted)
+    }
+    
+    func setMissingScheme(urlString: String) -> String {
+        if !urlString.hasPrefix("http") {
+            return "https://\(urlString)"
+        }
+        return urlString
+    }
+    
+    func isURLValid(urlString: String) -> Bool {
+        let url = URL(string: urlString)
+        return url?.host != nil && url?.scheme != nil
+    }
+    
+    func toggleSpinner(_ spin: Bool) {
+        if spin {
+            spinnerView.startAnimating()
+        } else {
+            spinnerView.stopAnimating()
+        }
+        overlayView.isHidden = !spin
+    }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         linkTextField.placeholder = ""
@@ -91,44 +127,8 @@ class CreateStudentInformationStep2ViewController: BaseViewController, UITextFie
             }
         }
     }
-
-    func goToListView() {
-        if let mapVC  = self.navigationController?.viewControllers[0] as? MapViewController {
-            mapVC.addedStudentInformation = studentInformation
-            navigationController?.popToViewController(mapVC, animated: true)
-        } else if let listVC = self.navigationController?.viewControllers[0] as? ListViewController {
-            listVC.addedStudentInformation = studentInformation
-            navigationController?.popToViewController(listVC, animated: true)
-        }
-    }
     
     @IBAction func goBack(_ sender: Any) {
         navigationController?.popViewController(animated: true)
-    }
-    
-    func getFormattedDate() -> String {
-        let now = Date.now
-        return now.formatted(date: .abbreviated, time: .omitted)
-    }
-    
-    func setMissingScheme(urlString: String) -> String {
-        if !urlString.hasPrefix("http") {
-            return "https://\(urlString)"
-        }
-        return urlString
-    }
-    
-    func isURLValid(urlString: String) -> Bool {
-        let url = URL(string: urlString)
-        return url?.host != nil && url?.scheme != nil
-    }
-    
-    func toggleSpinner(_ spin: Bool) {
-        if spin {
-            spinnerView.startAnimating()
-        } else {
-            spinnerView.stopAnimating()
-        }
-        overlayView.isHidden = !spin
     }
 }

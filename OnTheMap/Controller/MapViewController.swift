@@ -20,6 +20,20 @@ class MapViewController: BaseViewController, MKMapViewDelegate {
         loadData(nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let addedStudentInformation = addedStudentInformation {
+            StudentData.studentInformation.insert(addedStudentInformation, at: 0)
+            addPoint(studentInformation: addedStudentInformation)
+            self.addedStudentInformation = nil
+        }
+    }
+    
+    func addPoint(studentInformation: StudentInformation) {
+        let annotation = StudentLocation(studentInformation: studentInformation)
+        mapView.addAnnotation(annotation)
+    }
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard let annotation = annotation as? StudentLocation else {
             return nil
@@ -38,26 +52,12 @@ class MapViewController: BaseViewController, MKMapViewDelegate {
         return view
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if let addedStudentInformation = addedStudentInformation {
-            StudentData.studentInformation.insert(addedStudentInformation, at: 0)
-            addPoint(studentInformation: addedStudentInformation)
-            self.addedStudentInformation = nil
-        }
-    }
-    
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
             if let toOpen = view.annotation?.subtitle! {
                 UIApplication.shared.open(URL(string: toOpen)!, options: [:], completionHandler: nil)
             }
         }
-    }
-    
-    func addPoint(studentInformation: StudentInformation) {
-        let annotation = StudentLocation(studentInformation: studentInformation)
-        mapView.addAnnotation(annotation)
     }
     
     @IBAction func loadData(_ sender: Any?) {

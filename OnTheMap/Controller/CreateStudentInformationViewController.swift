@@ -24,6 +24,23 @@ class CreateStudentInformationViewController: BaseViewController, UITextFieldDel
         locationTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "step2" {
+            let step2VC = segue.destination as! CreateStudentInformationStep2ViewController
+            step2VC.coordinates = coordinates
+            step2VC.mapString = locationTextField.text!
+        }
+    }
+    
+    func toggleSpinner(_ spin: Bool) {
+        if spin {
+            spinnerView.startAnimating()
+        } else {
+            spinnerView.stopAnimating()
+        }
+        overlayView.isHidden = !spin
+    }
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         locationTextField.placeholder = ""
     }
@@ -55,23 +72,6 @@ class CreateStudentInformationViewController: BaseViewController, UITextFieldDel
                 self.showErrorMessage(title: "Localization Failed", message: "Location not found")
             }
         }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "step2" {
-            let step2VC = segue.destination as! CreateStudentInformationStep2ViewController
-            step2VC.coordinates = coordinates
-            step2VC.mapString = locationTextField.text!
-        }
-    }
-    
-    func toggleSpinner(_ spin: Bool) {
-        if spin {
-            spinnerView.startAnimating()
-        } else {
-            spinnerView.stopAnimating()
-        }
-        overlayView.isHidden = !spin
     }
     
     @IBAction func goBack(_ sender: Any) {
