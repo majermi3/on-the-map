@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RqW-Si-Tox">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -66,15 +66,30 @@
                                     <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gvF-5f-ect"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" alpha="0.25" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U43-8m-bxD" userLabel="Overlay">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0GX-Hl-6fF">
+                                <rect key="frame" x="187" y="531.5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="HpZ-EC-BtM"/>
+                                    <constraint firstAttribute="height" constant="40" id="v8n-YM-i4j"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="LoginBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="jin-tW-CMD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="1fs-Xi-Ump"/>
+                            <constraint firstAttribute="trailing" secondItem="U43-8m-bxD" secondAttribute="trailing" id="AkW-gZ-Eqn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pQb-YO-0yd" secondAttribute="trailing" constant="16" id="GnN-bC-gT4"/>
                             <constraint firstItem="6Df-dz-Ipn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="KWk-Pb-yPY"/>
                             <constraint firstItem="vrY-4W-NqK" firstAttribute="top" secondItem="6Df-dz-Ipn" secondAttribute="bottom" constant="24" id="KXh-Qh-nrN"/>
+                            <constraint firstItem="U43-8m-bxD" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="S9I-eU-Zci"/>
                             <constraint firstItem="gRo-Gp-g0t" firstAttribute="top" secondItem="pQb-YO-0yd" secondAttribute="bottom" constant="16" id="Sqt-gX-PmV"/>
+                            <constraint firstItem="0GX-Hl-6fF" firstAttribute="centerX" secondItem="jin-tW-CMD" secondAttribute="centerX" id="Uif-5F-Zrf"/>
+                            <constraint firstAttribute="bottom" secondItem="U43-8m-bxD" secondAttribute="bottom" id="XyU-nO-V4p"/>
                             <constraint firstItem="jin-tW-CMD" firstAttribute="top" secondItem="gRo-Gp-g0t" secondAttribute="bottom" constant="16" id="g9B-sf-GVw"/>
                             <constraint firstItem="gRo-Gp-g0t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="jwq-aS-LaB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gRo-Gp-g0t" secondAttribute="trailing" constant="16" id="lb7-pb-qyC"/>
@@ -82,13 +97,17 @@
                             <constraint firstItem="6Df-dz-Ipn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nB5-DW-qPv"/>
                             <constraint firstItem="vrY-4W-NqK" firstAttribute="centerX" secondItem="6Df-dz-Ipn" secondAttribute="centerX" id="oDw-NC-61L"/>
                             <constraint firstItem="pQb-YO-0yd" firstAttribute="top" secondItem="vrY-4W-NqK" secondAttribute="bottom" constant="16" id="oKS-3a-hDb"/>
+                            <constraint firstItem="0GX-Hl-6fF" firstAttribute="top" secondItem="jin-tW-CMD" secondAttribute="bottom" constant="16" id="rjX-3H-6W1"/>
+                            <constraint firstItem="U43-8m-bxD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uh7-q0-JI6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jin-tW-CMD" secondAttribute="trailing" constant="16" id="umL-3Y-c4B"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="pQb-YO-0yd" id="BI9-6Y-IeX"/>
                         <outlet property="loginButton" destination="jin-tW-CMD" id="8EJ-jb-heh"/>
+                        <outlet property="overlayView" destination="U43-8m-bxD" id="82g-pX-szT"/>
                         <outlet property="passwordTextFIeld" destination="gRo-Gp-g0t" id="bw1-Gi-wZp"/>
+                        <outlet property="spinnerView" destination="0GX-Hl-6fF" id="vmD-JR-uVu"/>
                         <segue destination="RqW-Si-Tox" kind="presentation" identifier="loginSegue" id="EY4-m8-I9T"/>
                     </connections>
                 </viewController>

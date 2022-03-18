@@ -12,6 +12,8 @@ class LoginViewController: BaseViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextFIeld: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var overlayView: UIView!
+    @IBOutlet weak var spinnerView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,14 +28,25 @@ class LoginViewController: BaseViewController {
         }
         let credentials = UdacityCredentials(username: email!, password: password!)
         
+        toggleSpinner(true)
         UdacityClient.createSession(credentials: credentials, completion: handleLogin(success:error:))
     }
     
     func handleLogin(success: Bool, error: Error?) {
+        toggleSpinner(false)
         if success {
             self.performSegue(withIdentifier: "loginSegue", sender: nil)
         } else {
             self.showErrorMessage(title: "Login Failed", message: error?.localizedDescription ?? "")
         }
+    }
+    
+    func toggleSpinner(_ spin: Bool) {
+        if spin {
+            spinnerView.startAnimating()
+        } else {
+            spinnerView.stopAnimating()
+        }
+        overlayView.isHidden = !spin
     }
 }
