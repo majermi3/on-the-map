@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginViewController: BaseViewController {
+class LoginViewController: BaseViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextFIeld: UITextField!
@@ -15,8 +15,24 @@ class LoginViewController: BaseViewController {
     @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var spinnerView: UIActivityIndicatorView!
     
+    var placeholder = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+                
+        emailTextField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        passwordTextFIeld.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        placeholder = textField.placeholder ?? ""
+        textField.placeholder = ""
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.placeholder == "" {
+            textField.placeholder = placeholder
+        }
     }
 
     @IBAction func login(_ sender: Any) {

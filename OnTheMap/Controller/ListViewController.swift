@@ -11,11 +11,21 @@ import UIKit
 class ListViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    var addedStudentInformation: StudentInformation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loadData(nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let addedStudentInformation = addedStudentInformation {
+            StudentData.studentInformation.insert(addedStudentInformation, at: 0)
+            self.addedStudentInformation = nil
+            self.tableView.reloadData()
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -10,7 +10,7 @@ import CoreLocation
 import UIKit
 import MapKit
 
-class CreateStudentInformationStep2ViewController: BaseViewController {
+class CreateStudentInformationStep2ViewController: BaseViewController, UITextFieldDelegate {
     
     let placeholder = "Enter a Link to Share Here"
     var coordinates: CLLocationCoordinate2D!
@@ -54,6 +54,16 @@ class CreateStudentInformationStep2ViewController: BaseViewController {
         mapView.setRegion(mapView.regionThatFits(region), animated: true)
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        linkTextField.placeholder = ""
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if linkTextField.placeholder == "" {
+            linkTextField.placeholder = placeholder
+        }
+    }
+    
     @IBAction func submit(_ sender: Any) {
         guard notEmpty(text: linkTextField.text) else {
             showErrorMessage(title: "Submit Failed", message: "Please add a Link to Share")
@@ -75,8 +85,6 @@ class CreateStudentInformationStep2ViewController: BaseViewController {
             }
             if let studentInformationResponse = studentInformationResponse {
                 self.studentInformation.objectId = studentInformationResponse.objectId
-                //TODO This does not work
-                StudentData.studentInformation.append(self.studentInformation)
                 self.goToListView()
             } else {
                 self.showErrorMessage(title: "Submit Failed", message: "Please try again later")
@@ -85,7 +93,13 @@ class CreateStudentInformationStep2ViewController: BaseViewController {
     }
 
     func goToListView() {
-        navigationController?.popToRootViewController(animated: true)
+        if let mapVC  = self.navigationController?.viewControllers[0] as? MapViewController {
+            mapVC.addedStudentInformation = studentInformation
+            navigationController?.popToViewController(mapVC, animated: true)
+        } else if let listVC = self.navigationController?.viewControllers[0] as? ListViewController {
+            listVC.addedStudentInformation = studentInformation
+            navigationController?.popToViewController(listVC, animated: true)
+        }
     }
     
     @IBAction func goBack(_ sender: Any) {

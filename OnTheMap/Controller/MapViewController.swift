@@ -12,6 +12,7 @@ import MapKit
 class MapViewController: BaseViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
+    var addedStudentInformation: StudentInformation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,15 @@ class MapViewController: BaseViewController, MKMapViewDelegate {
         view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         
         return view
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let addedStudentInformation = addedStudentInformation {
+            StudentData.studentInformation.insert(addedStudentInformation, at: 0)
+            addPoint(studentInformation: addedStudentInformation)
+            self.addedStudentInformation = nil
+        }
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
