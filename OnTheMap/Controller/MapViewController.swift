@@ -47,11 +47,11 @@ class MapViewController: BaseViewController, MKMapViewDelegate {
     
     func addPoint(studentInformation: StudentInformation) {
         let annotation = StudentLocation(studentInformation: studentInformation)
-        self.mapView.addAnnotation(annotation)
+        mapView.addAnnotation(annotation)
     }
     
     @IBAction func loadData(_ sender: Any?) {
-        self.mapView.removeAnnotations(self.mapView.annotations)
+        mapView.removeAnnotations(self.mapView.annotations)
         
         UdacityClient.getStudentLocations(limit: 100) { studentInformation, error in
             if error == nil {

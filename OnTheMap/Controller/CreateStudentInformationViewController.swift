@@ -19,7 +19,6 @@ class CreateStudentInformationViewController: BaseViewController, UITextFieldDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locationTextField.borderStyle = .none
         locationTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
     
@@ -59,6 +58,7 @@ class CreateStudentInformationViewController: BaseViewController, UITextFieldDel
         if segue.identifier == "step2" {
             let step2VC = segue.destination as! CreateStudentInformationStep2ViewController
             step2VC.coordinates = coordinates
+            step2VC.mapString = locationTextField.text!
         }
     }
 }

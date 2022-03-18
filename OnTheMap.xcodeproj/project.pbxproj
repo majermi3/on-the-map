@@ -26,6 +26,7 @@
 		73B9D72227E3E45200FC82AD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B9D72127E3E45200FC82AD /* BaseViewController.swift */; };
 		73B9D72427E3E75300FC82AD /* CreateStudentInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B9D72327E3E75300FC82AD /* CreateStudentInformationViewController.swift */; };
 		73B9D72627E4213F00FC82AD /* CreateStudentInformationStep2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B9D72527E4213F00FC82AD /* CreateStudentInformationStep2ViewController.swift */; };
+		73B9D72A27E4329400FC82AD /* StudentInformationCreatedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B9D72927E4329400FC82AD /* StudentInformationCreatedResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		73B9D72127E3E45200FC82AD /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		73B9D72327E3E75300FC82AD /* CreateStudentInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStudentInformationViewController.swift; sourceTree = "<group>"; };
 		73B9D72527E4213F00FC82AD /* CreateStudentInformationStep2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStudentInformationStep2ViewController.swift; sourceTree = "<group>"; };
+		73B9D72927E4329400FC82AD /* StudentInformationCreatedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInformationCreatedResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				73B9D71027E2D3E500FC82AD /* LoginResponse.swift */,
 				73B9D71527E2EA3200FC82AD /* StudentInformationResponse.swift */,
 				73B9D71B27E3D0D900FC82AD /* ErrorResponse.swift */,
+				73B9D72927E4329400FC82AD /* StudentInformationCreatedResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				73B9D71827E39A5900FC82AD /* StudentLocation.swift in Sources */,
 				73B9D70327E142A900FC82AD /* StudentInformation.swift in Sources */,
 				73B674EB27E1399700EA406D /* LoginViewController.swift in Sources */,
+				73B9D72A27E4329400FC82AD /* StudentInformationCreatedResponse.swift in Sources */,
 				73B9D70B27E2949500FC82AD /* UdacityCredentials.swift in Sources */,
 				73B9D71127E2D3E500FC82AD /* LoginResponse.swift in Sources */,
 				73B9D72427E3E75300FC82AD /* CreateStudentInformationViewController.swift in Sources */,
