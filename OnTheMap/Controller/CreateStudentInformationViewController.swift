@@ -15,6 +15,8 @@ class CreateStudentInformationViewController: BaseViewController, UITextFieldDel
     var coordinates: CLLocationCoordinate2D?
     
     @IBOutlet weak var locationTextField: UITextField!
+    @IBOutlet weak var overlayView: UIView!
+    @IBOutlet weak var spinnerView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +40,9 @@ class CreateStudentInformationViewController: BaseViewController, UITextFieldDel
             showErrorMessage(title: "Localization Failed", message: "Location cannot be empty")
             return
         }
-        
+        toggleSpinner(true)
         CLGeocoder().geocodeAddressString(locationText!) { placemarks, error in
+            self.toggleSpinner(false)
             if error != nil {
                 self.showErrorMessage(title: "Localization Failed", message: "Location not found")
                 return
@@ -60,6 +63,15 @@ class CreateStudentInformationViewController: BaseViewController, UITextFieldDel
             step2VC.coordinates = coordinates
             step2VC.mapString = locationTextField.text!
         }
+    }
+    
+    func toggleSpinner(_ spin: Bool) {
+        if spin {
+            spinnerView.startAnimating()
+        } else {
+            spinnerView.stopAnimating()
+        }
+        overlayView.isHidden = !spin
     }
     
     @IBAction func goBack(_ sender: Any) {

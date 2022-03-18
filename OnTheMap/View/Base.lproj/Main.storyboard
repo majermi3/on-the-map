@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RqW-Si-Tox">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -372,19 +372,36 @@
                                     <constraint firstItem="PCI-fj-FCb" firstAttribute="centerY" secondItem="7Zr-20-SXD" secondAttribute="centerY" id="M1a-DX-8be"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" alpha="0.25" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6qX-kv-RN6" userLabel="Overlay">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ZVi-Rq-Gyy">
+                                <rect key="frame" x="187" y="430.5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="6U3-W8-7Qx"/>
+                                    <constraint firstAttribute="width" constant="40" id="dBG-NR-277"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nbl-Yj-VLS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="7Zr-20-SXD" firstAttribute="bottom" secondItem="nbl-Yj-VLS" secondAttribute="bottom" id="0Lj-al-CDT"/>
+                            <constraint firstItem="6qX-kv-RN6" firstAttribute="leading" secondItem="8Ix-PX-4Wc" secondAttribute="leading" id="25V-dT-z2C"/>
                             <constraint firstItem="g8j-yR-pZ3" firstAttribute="top" secondItem="nbl-Yj-VLS" secondAttribute="top" constant="32" id="5qU-Tx-psA"/>
                             <constraint firstItem="7Ls-fp-EKX" firstAttribute="top" secondItem="g8j-yR-pZ3" secondAttribute="bottom" constant="48" id="77H-kF-Eq6"/>
                             <constraint firstItem="7Zr-20-SXD" firstAttribute="leading" secondItem="8Ix-PX-4Wc" secondAttribute="leading" id="969-kQ-DPY"/>
                             <constraint firstItem="7Ls-fp-EKX" firstAttribute="centerX" secondItem="nbl-Yj-VLS" secondAttribute="centerX" id="9SV-Ko-gsi"/>
                             <constraint firstItem="7Ls-fp-EKX" firstAttribute="trailing" secondItem="nbl-Yj-VLS" secondAttribute="trailing" id="Bgg-Oa-OTZ"/>
+                            <constraint firstItem="ZVi-Rq-Gyy" firstAttribute="centerY" secondItem="nbl-Yj-VLS" secondAttribute="centerY" id="DYI-SU-m58"/>
                             <constraint firstItem="g8j-yR-pZ3" firstAttribute="centerX" secondItem="nbl-Yj-VLS" secondAttribute="centerX" id="DeT-lW-6QN"/>
+                            <constraint firstAttribute="bottom" secondItem="6qX-kv-RN6" secondAttribute="bottom" id="EWS-3M-vgq"/>
+                            <constraint firstItem="6qX-kv-RN6" firstAttribute="trailing" secondItem="8Ix-PX-4Wc" secondAttribute="trailing" id="Hav-Uj-qbi"/>
                             <constraint firstAttribute="trailing" secondItem="7Zr-20-SXD" secondAttribute="trailing" id="WWG-h8-06t"/>
+                            <constraint firstItem="ZVi-Rq-Gyy" firstAttribute="centerX" secondItem="nbl-Yj-VLS" secondAttribute="centerX" id="Ybw-9A-BLg"/>
                             <constraint firstItem="g8j-yR-pZ3" firstAttribute="leading" secondItem="nbl-Yj-VLS" secondAttribute="leading" id="ZBL-K9-45X"/>
+                            <constraint firstItem="6qX-kv-RN6" firstAttribute="top" secondItem="8Ix-PX-4Wc" secondAttribute="top" id="aO3-Iv-1tq"/>
                             <constraint firstItem="7Zr-20-SXD" firstAttribute="centerX" secondItem="nbl-Yj-VLS" secondAttribute="centerX" id="bS2-yr-5Th"/>
                             <constraint firstItem="nbl-Yj-VLS" firstAttribute="trailing" secondItem="g8j-yR-pZ3" secondAttribute="trailing" id="ftr-kB-G6H"/>
                             <constraint firstItem="7Zr-20-SXD" firstAttribute="top" secondItem="7Ls-fp-EKX" secondAttribute="bottom" id="qQS-uN-gja"/>
@@ -402,6 +419,8 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="locationTextField" destination="nW4-7a-K8A" id="YRC-6d-srH"/>
+                        <outlet property="overlayView" destination="6qX-kv-RN6" id="bzu-qJ-u1F"/>
+                        <outlet property="spinnerView" destination="ZVi-Rq-Gyy" id="epP-cg-HmD"/>
                         <segue destination="5Oc-3s-xx0" kind="show" identifier="step2" id="9Kj-qO-aXr"/>
                     </connections>
                 </viewController>
