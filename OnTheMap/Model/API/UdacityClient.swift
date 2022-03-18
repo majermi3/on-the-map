@@ -10,9 +10,9 @@ import Foundation
 class UdacityClient {
     
     struct User {
-        static var id = "1646821119"
-        static var firstName = "Luke"
-        static var lastName = "Skywalker"
+        static var id = ""
+        static var firstName = ""
+        static var lastName = ""
     }
     
     struct Auth {
@@ -84,6 +84,7 @@ class UdacityClient {
             do {
                 let loginResponse = try decoder.decode(LoginResponse.self, from: newData)
                 Auth.sessionId = loginResponse.session.id
+                User.id = loginResponse.account.key
                 DispatchQueue.main.async {
                     completion(true, nil)
                 }
@@ -169,6 +170,42 @@ class UdacityClient {
                 } catch {
                     DispatchQueue.main.async {
                         completion(nil, error)
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    class func loadUser(completion: @escaping (Bool, Error?) -> Void) {
+        var request = URLRequest(url: Endpoints.users.url)
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if error != nil {
+                completion(false, error)
+                return
+            }
+            let newData = removeFirst5Characters(data: data!)
+            
+            let decoder = JSONDecoder()
+            do {
+                let userResponse = try decoder.decode(UserResponse.self, from: newData)
+                User.firstName = userResponse.firstName
+                User.lastName = userResponse.lastName
+                
+                DispatchQueue.main.async {
+                    completion(true, nil)
+                }
+            } catch {
+                do {
+                    let errorResponse = try decoder.decode(ErrorResponse.self, from: data!) as Error
+                    DispatchQueue.main.async {
+                        completion(false, errorResponse)
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        completion(false, error)
                     }
                 }
             }

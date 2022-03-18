@@ -27,6 +27,7 @@
 		73B9D72427E3E75300FC82AD /* CreateStudentInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B9D72327E3E75300FC82AD /* CreateStudentInformationViewController.swift */; };
 		73B9D72627E4213F00FC82AD /* CreateStudentInformationStep2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B9D72527E4213F00FC82AD /* CreateStudentInformationStep2ViewController.swift */; };
 		73B9D72A27E4329400FC82AD /* StudentInformationCreatedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B9D72927E4329400FC82AD /* StudentInformationCreatedResponse.swift */; };
+		73B9D72E27E546B000FC82AD /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B9D72D27E546B000FC82AD /* UserResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		73B9D72327E3E75300FC82AD /* CreateStudentInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStudentInformationViewController.swift; sourceTree = "<group>"; };
 		73B9D72527E4213F00FC82AD /* CreateStudentInformationStep2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStudentInformationStep2ViewController.swift; sourceTree = "<group>"; };
 		73B9D72927E4329400FC82AD /* StudentInformationCreatedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInformationCreatedResponse.swift; sourceTree = "<group>"; };
+		73B9D72D27E546B000FC82AD /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				73B9D71527E2EA3200FC82AD /* StudentInformationResponse.swift */,
 				73B9D71B27E3D0D900FC82AD /* ErrorResponse.swift */,
 				73B9D72927E4329400FC82AD /* StudentInformationCreatedResponse.swift */,
+				73B9D72D27E546B000FC82AD /* UserResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				73B674FD27E13D7A00EA406D /* MapViewController.swift in Sources */,
 				73B9D71427E2E70700FC82AD /* StudentData.swift in Sources */,
 				73B9D71C27E3D0D900FC82AD /* ErrorResponse.swift in Sources */,
+				73B9D72E27E546B000FC82AD /* UserResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -49,10 +49,17 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
     }
     
     func handleLogin(success: Bool, error: Error?) {
-        toggleSpinner(false)
         if success {
-            self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            UdacityClient.loadUser() { success, error in
+                self.toggleSpinner(false)
+                if success {
+                    self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                } else {
+                    self.showErrorMessage(title: "Login Failed", message: error?.localizedDescription ?? "")
+                }
+            }
         } else {
+            toggleSpinner(false)
             self.showErrorMessage(title: "Login Failed", message: error?.localizedDescription ?? "")
         }
     }
