@@ -165,7 +165,8 @@
                             </barButtonItem>
                             <barButtonItem image="icon_pin" id="tIO-4A-7bd">
                                 <connections>
-                                    <segue destination="Yex-5d-LXc" kind="show" id="b9c-AJ-x9O"/>
+                                    <action selector="openStudentInformationCreationView:" destination="7qr-5Z-uap" id="Zgf-hT-Ioh"/>
+                                    <segue destination="Yex-5d-LXc" kind="show" id="3sw-ML-d3T"/>
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
@@ -254,7 +255,8 @@
                             </barButtonItem>
                             <barButtonItem title="Item" image="icon_pin" id="wMk-3P-FcD">
                                 <connections>
-                                    <segue destination="Yex-5d-LXc" kind="show" id="afW-0c-bJZ"/>
+                                    <action selector="openStudentInformationCreationView:" destination="yVi-kN-FLk" id="iJc-WO-3UY"/>
+                                    <segue destination="Yex-5d-LXc" kind="show" id="mhK-xw-e7d"/>
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
@@ -275,7 +277,7 @@
         <!--Create Student Information View Controller-->
         <scene sceneID="u6e-xS-YeZ">
             <objects>
-                <viewController id="Yex-5d-LXc" customClass="CreateStudentInformationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="Yex-5d-LXc" customClass="CreateStudentInformationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Ix-PX-4Wc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -329,10 +331,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Zr-20-SXD" userLabel="Button Container">
-                                <rect key="frame" x="0.0" y="457.5" width="414" height="306.5"/>
+                                <rect key="frame" x="0.0" y="457.5" width="414" height="355.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCI-fj-FCb">
-                                        <rect key="frame" x="136.5" y="129.5" width="141" height="48"/>
+                                        <rect key="frame" x="136.5" y="154" width="141" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="o5u-ap-Khl"/>
                                         </constraints>
@@ -387,7 +389,7 @@
         <!--Create Student Information Step2 View Controller-->
         <scene sceneID="FRi-6z-CFM">
             <objects>
-                <viewController id="5Oc-3s-xx0" customClass="CreateStudentInformationStep2ViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="5Oc-3s-xx0" customClass="CreateStudentInformationStep2ViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cJc-DC-2v8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -404,10 +406,10 @@
                                 <textInputTraits key="textInputTraits" textContentType="url"/>
                             </textField>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ULE-6o-3HQ">
-                                <rect key="frame" x="0.0" y="288" width="414" height="476"/>
+                                <rect key="frame" x="0.0" y="288" width="414" height="525"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMr-BQ-ug6">
-                                <rect key="frame" x="161" y="623" width="92" height="41"/>
+                                <rect key="frame" x="161" y="672" width="92" height="41"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Submit">
                                     <backgroundConfiguration key="background"/>
@@ -446,7 +448,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="afW-0c-bJZ"/>
+        <segue reference="mhK-xw-e7d"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.left" catalog="system" width="128" height="106"/>

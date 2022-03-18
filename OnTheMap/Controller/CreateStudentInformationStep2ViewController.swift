@@ -25,24 +25,19 @@ class CreateStudentInformationStep2ViewController: BaseViewController {
         linkTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        //let annotation = StudentLocation(studentInformation: studentInformation)
-        //mapView.addAnnotation(annotation)
-        UdacityClient.getUser() { studentInformation, error in
-            
-        }
-    }
     @IBAction func submit(_ sender: Any) {
         guard notEmpty(text: linkTextField.text) else {
             showErrorMessage(title: "Submit Failed", message: "Please add a Link to Share")
             return
         }
-        guard isURLValid(urlString: linkTextField.text!) else {
+        var link = linkTextField.text!
+        guard isURLValid(urlString: link) else {
             showErrorMessage(title: "Submit Failed", message: "Shared Link is invalid")
             return
         }
+        
+        link = setMissingSchema(urlString: link)
+        
         let date = getFormattedDate()
         let studentInformation = StudentInformation(
             objectId: "",
@@ -50,7 +45,7 @@ class CreateStudentInformationStep2ViewController: BaseViewController {
             firstName: UdacityClient.User.firstName,
             lastName: UdacityClient.User.lastName,
             mapString: mapString,
-            mediaURL: linkTextField.text!,
+            mediaURL: link,
             latitude: coordinates.latitude,
             longitude: coordinates.longitude,
             createdAt: date,
@@ -80,8 +75,16 @@ class CreateStudentInformationStep2ViewController: BaseViewController {
         return now.formatted(date: .abbreviated, time: .omitted)
     }
     
+    func setMissingSchema(urlString: String) -> String {
+        let url = URL(string: urlString)
+        if url?.scheme == nil {
+            return "https://\(urlString)"
+        }
+        return urlString
+    }
+    
     func isURLValid(urlString: String) -> Bool {
         let url = URL(string: urlString)
-        return url?.host != nil && url?.scheme != nil /* and whatever other checks you want */
+        return url?.host != nil
     }
 }

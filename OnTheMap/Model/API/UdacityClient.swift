@@ -176,19 +176,6 @@ class UdacityClient {
         task.resume()
     }
     
-    class func getUser(completion: @escaping (StudentInformation?, Error?) -> Void) {
-        let request = URLRequest(url: Endpoints.users.url)
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if error != nil {
-                completion(nil, error)
-                return
-            }
-            let newData = removeFirst5Characters(data: data!) /* subset response data! */
-            
-        }
-        task.resume()
-    }
-    
     private class func getRequestWithHeaders(url: URL, method: String = "POST") -> URLRequest {
         var request = URLRequest(url: url)
         request.httpMethod = method

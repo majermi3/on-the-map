@@ -53,6 +53,7 @@ class ListViewController: BaseViewController, UITableViewDelegate, UITableViewDa
             }
         }
     }
+    
     @IBAction func logout(_ sender: Any) {
         super.logout()
     }
