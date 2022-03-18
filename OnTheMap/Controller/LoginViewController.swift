@@ -41,11 +41,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
     }
     
     func toggleSpinner(_ spin: Bool) {
-        if spin {
-            spinnerView.startAnimating()
-        } else {
-            spinnerView.stopAnimating()
-        }
+        spin ? spinnerView.startAnimating() : spinnerView.stopAnimating()
         overlayView.isHidden = !spin
     }
     

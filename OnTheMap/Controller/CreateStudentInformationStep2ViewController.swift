@@ -82,11 +82,7 @@ class CreateStudentInformationStep2ViewController: BaseViewController, UITextFie
     }
     
     func toggleSpinner(_ spin: Bool) {
-        if spin {
-            spinnerView.startAnimating()
-        } else {
-            spinnerView.stopAnimating()
-        }
+        spin ? spinnerView.startAnimating() : spinnerView.stopAnimating()
         overlayView.isHidden = !spin
     }
     
