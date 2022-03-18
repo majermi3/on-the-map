@@ -18,7 +18,7 @@ class CreateStudentInformationViewController: BaseViewController, UITextFieldDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.setHidesBackButton(true, animated: false)
         locationTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
     
@@ -60,5 +60,9 @@ class CreateStudentInformationViewController: BaseViewController, UITextFieldDel
             step2VC.coordinates = coordinates
             step2VC.mapString = locationTextField.text!
         }
+    }
+    
+    @IBAction func goBack(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
 }

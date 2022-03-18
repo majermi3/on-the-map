@@ -157,10 +157,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="On The Map" id="iEy-oa-fP6">
-                        <leftBarButtonItems>
-                            <barButtonItem image="arrowshape.turn.up.left" catalog="system" id="Pyt-eA-UrO">
+                        <barButtonItem key="leftBarButtonItem" image="arrowshape.turn.up.left" catalog="system" id="Pyt-eA-UrO">
+                            <connections>
+                                <action selector="logout:" destination="7qr-5Z-uap" id="pIT-mc-Hxv"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="icon_refresh" id="cIi-Ro-69D">
                                 <connections>
-                                    <action selector="logout:" destination="7qr-5Z-uap" id="pIT-mc-Hxv"/>
+                                    <action selector="loadData:" destination="7qr-5Z-uap" id="7zg-zE-I7W"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="icon_pin" id="tIO-4A-7bd">
@@ -169,12 +174,7 @@
                                     <segue destination="Yex-5d-LXc" kind="show" id="3sw-ML-d3T"/>
                                 </connections>
                             </barButtonItem>
-                        </leftBarButtonItems>
-                        <barButtonItem key="rightBarButtonItem" image="icon_refresh" id="cIi-Ro-69D">
-                            <connections>
-                                <action selector="loadData:" destination="7qr-5Z-uap" id="7zg-zE-I7W"/>
-                            </connections>
-                        </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="8dj-oG-rja" id="teC-aa-6Hb"/>
@@ -247,24 +247,24 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="On The Map" id="Iy2-hV-lSK">
-                        <leftBarButtonItems>
-                            <barButtonItem image="arrowshape.turn.up.left" catalog="system" id="J74-kx-mch">
+                        <barButtonItem key="leftBarButtonItem" image="arrowshape.turn.up.left" catalog="system" id="J74-kx-mch">
+                            <connections>
+                                <action selector="logout:" destination="yVi-kN-FLk" id="jvI-vW-G2G"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="icon_refresh" id="6QJ-o1-ydg">
                                 <connections>
-                                    <action selector="logout:" destination="yVi-kN-FLk" id="jvI-vW-G2G"/>
+                                    <action selector="loadData:" destination="yVi-kN-FLk" id="J0F-Cy-LDZ"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Item" image="icon_pin" id="wMk-3P-FcD">
+                            <barButtonItem image="icon_pin" id="wMk-3P-FcD">
                                 <connections>
                                     <action selector="openStudentInformationCreationView:" destination="yVi-kN-FLk" id="iJc-WO-3UY"/>
                                     <segue destination="Yex-5d-LXc" kind="show" id="mhK-xw-e7d"/>
                                 </connections>
                             </barButtonItem>
-                        </leftBarButtonItems>
-                        <barButtonItem key="rightBarButtonItem" image="icon_refresh" id="6QJ-o1-ydg">
-                            <connections>
-                                <action selector="loadData:" destination="yVi-kN-FLk" id="J0F-Cy-LDZ"/>
-                            </connections>
-                        </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Ilq-fT-tgu" id="qFU-Nq-WX4"/>
@@ -374,7 +374,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="h2k-Ht-j7z">
-                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="LJj-bt-Bh9"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="LJj-bt-Bh9">
+                            <connections>
+                                <action selector="goBack:" destination="Yex-5d-LXc" id="QPq-WY-2dI"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -436,7 +440,13 @@
                             <constraint firstItem="mMr-BQ-ug6" firstAttribute="bottom" secondItem="ULE-6o-3HQ" secondAttribute="bottom" constant="-100" id="zbE-HZ-Sm7"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="fCR-cP-rfj"/>
+                    <navigationItem key="navigationItem" id="fCR-cP-rfj">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="ljO-ym-GqC">
+                            <connections>
+                                <action selector="goBack:" destination="5Oc-3s-xx0" id="1ke-ug-rZT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="linkTextField" destination="xQ1-1A-Bfw" id="r8V-xN-M6w"/>
                         <outlet property="mapView" destination="ULE-6o-3HQ" id="nlR-P7-T40"/>
@@ -448,7 +458,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mhK-xw-e7d"/>
+        <segue reference="3sw-ML-d3T"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.left" catalog="system" width="128" height="106"/>

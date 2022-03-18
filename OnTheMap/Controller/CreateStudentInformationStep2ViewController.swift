@@ -22,7 +22,7 @@ class CreateStudentInformationStep2ViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.setHidesBackButton(true, animated: false)
         linkTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
         let date = getFormattedDate()
@@ -71,7 +71,8 @@ class CreateStudentInformationStep2ViewController: BaseViewController {
                 return
             }
             if let studentInformationResponse = studentInformationResponse {
-                // TODO
+                self.studentInformation.objectId = studentInformationResponse.objectId
+                StudentData.studentInformation.append(self.studentInformation)
                 self.goToListView()
             } else {
                 self.showErrorMessage(title: "Submit Failed", message: "Please try again later")
@@ -81,6 +82,10 @@ class CreateStudentInformationStep2ViewController: BaseViewController {
 
     func goToListView() {
         navigationController?.popToRootViewController(animated: true)
+    }
+    
+    @IBAction func goBack(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
     
     func getFormattedDate() -> String {
