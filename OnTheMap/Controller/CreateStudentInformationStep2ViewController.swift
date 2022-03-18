@@ -19,6 +19,8 @@ class CreateStudentInformationStep2ViewController: BaseViewController {
     
     @IBOutlet weak var linkTextField: UITextField!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var overlayView: UIView!
+    @IBOutlet weak var spinnerView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,14 +66,16 @@ class CreateStudentInformationStep2ViewController: BaseViewController {
         }
         
         studentInformation.mediaURL = link
-        
+        toggleSpinner(true)
         UdacityClient.createStudenInformation(studentInformation: studentInformation) { studentInformationResponse, error in
+            self.toggleSpinner(false)
             if let error = error {
                 self.showErrorMessage(title: "Submit Failed", message: error.localizedDescription)
                 return
             }
             if let studentInformationResponse = studentInformationResponse {
                 self.studentInformation.objectId = studentInformationResponse.objectId
+                //TODO This does not work
                 StudentData.studentInformation.append(self.studentInformation)
                 self.goToListView()
             } else {
@@ -103,5 +107,14 @@ class CreateStudentInformationStep2ViewController: BaseViewController {
     func isURLValid(urlString: String) -> Bool {
         let url = URL(string: urlString)
         return url?.host != nil && url?.scheme != nil
+    }
+    
+    func toggleSpinner(_ spin: Bool) {
+        if spin {
+            spinnerView.startAnimating()
+        } else {
+            spinnerView.stopAnimating()
+        }
+        overlayView.isHidden = !spin
     }
 }

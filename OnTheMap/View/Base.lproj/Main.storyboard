@@ -463,18 +463,35 @@
                                     <action selector="submit:" destination="5Oc-3s-xx0" eventType="touchUpInside" id="BlW-Ef-na1"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" alpha="0.25" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="92u-4z-B9s" userLabel="Overlay">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="96x-uj-DJD">
+                                <rect key="frame" x="187" y="430.5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="0sj-HD-Xax"/>
+                                    <constraint firstAttribute="height" constant="40" id="vfS-A0-yU7"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ESp-OT-kzD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ULE-6o-3HQ" firstAttribute="leading" secondItem="ESp-OT-kzD" secondAttribute="leading" id="1Tw-UG-0tB"/>
                             <constraint firstItem="mMr-BQ-ug6" firstAttribute="centerX" secondItem="ULE-6o-3HQ" secondAttribute="centerX" id="8hU-Ab-1gR"/>
+                            <constraint firstItem="92u-4z-B9s" firstAttribute="leading" secondItem="cJc-DC-2v8" secondAttribute="leading" id="BfE-OD-7lr"/>
                             <constraint firstItem="ESp-OT-kzD" firstAttribute="bottom" secondItem="ULE-6o-3HQ" secondAttribute="bottom" id="C01-Rv-oHm"/>
+                            <constraint firstAttribute="trailing" secondItem="92u-4z-B9s" secondAttribute="trailing" id="CW1-kQ-f19"/>
                             <constraint firstItem="ULE-6o-3HQ" firstAttribute="top" secondItem="xQ1-1A-Bfw" secondAttribute="bottom" id="GwS-Pa-eKY"/>
+                            <constraint firstItem="96x-uj-DJD" firstAttribute="centerY" secondItem="ESp-OT-kzD" secondAttribute="centerY" id="IUD-dX-8cm"/>
+                            <constraint firstItem="96x-uj-DJD" firstAttribute="centerX" secondItem="ESp-OT-kzD" secondAttribute="centerX" id="PNa-Y7-tuG"/>
                             <constraint firstItem="xQ1-1A-Bfw" firstAttribute="leading" secondItem="ESp-OT-kzD" secondAttribute="leading" id="SJG-km-2MJ"/>
                             <constraint firstItem="ESp-OT-kzD" firstAttribute="trailing" secondItem="ULE-6o-3HQ" secondAttribute="trailing" id="Scw-FN-MN6"/>
                             <constraint firstItem="ESp-OT-kzD" firstAttribute="trailing" secondItem="xQ1-1A-Bfw" secondAttribute="trailing" id="e51-4o-LaU"/>
                             <constraint firstItem="xQ1-1A-Bfw" firstAttribute="top" secondItem="ESp-OT-kzD" secondAttribute="top" id="ncT-ho-lGD"/>
+                            <constraint firstItem="92u-4z-B9s" firstAttribute="bottom" secondItem="cJc-DC-2v8" secondAttribute="bottom" id="rhk-zr-UqV"/>
+                            <constraint firstAttribute="top" secondItem="92u-4z-B9s" secondAttribute="top" id="sWD-4k-4oz"/>
                             <constraint firstItem="mMr-BQ-ug6" firstAttribute="bottom" secondItem="ULE-6o-3HQ" secondAttribute="bottom" constant="-100" id="zbE-HZ-Sm7"/>
                         </constraints>
                     </view>
@@ -488,6 +505,8 @@
                     <connections>
                         <outlet property="linkTextField" destination="xQ1-1A-Bfw" id="r8V-xN-M6w"/>
                         <outlet property="mapView" destination="ULE-6o-3HQ" id="nlR-P7-T40"/>
+                        <outlet property="overlayView" destination="92u-4z-B9s" id="Kr0-Oo-zEv"/>
+                        <outlet property="spinnerView" destination="96x-uj-DJD" id="Pi4-wF-bV7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aRg-py-L1M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
